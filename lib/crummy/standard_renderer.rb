@@ -50,7 +50,7 @@ module Crummy
         crumb_string = crumbs.collect do |crumb|
           crumb_to_html_list(crumb, options[:links], options[:li_class], options[:active_li_class], options[:first_class], options[:last_class], (crumb == crumbs.first), (crumb == crumbs.last))
         end * options[:separator]
-        crumb_string = content_tag(:ul, crumb_string, :class => options[:ul_class], :id => options[:ul_id])
+        crumb_string = content_tag(:ul, crumb_string.html_safe, :class => options[:ul_class], :id => options[:ul_id])
         crumb_string
       when :xml
         crumbs.collect do |crumb|
